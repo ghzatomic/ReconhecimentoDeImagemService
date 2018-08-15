@@ -2,7 +2,7 @@ package br.com.caiopaulucci.dto;
 
 import java.util.List;
 
-public class VerificacaoFaceDTOIn {
+public class IdentificacaoFaceDTOIn {
 
     private List<String> fontes;
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class VerificacaoFaceDTOOut {
 
-    public boolean resposta;
+    private boolean resposta;
 
     public boolean isResposta() {
         return resposta;
