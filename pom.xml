@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.com.caiopaulucci</groupId>
+    <artifactId>ReconhecimentoDeImagemService</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.6.RELEASE</version>
+        <!-- <version>1.4.0.RELEASE</version> -->
+        <!-- <relativePath /> -->
+    </parent>
+
+    <repositories>
+        <repository>
+            <id>OpenIMAJ maven releases repository</id>
+            <url>http://maven.openimaj.org</url>
+        </repository>
+        <repository>
+            <id>OpenIMAJ maven snapshots repository</id>
+            <url>http://snapshots.openimaj.org</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-parent</artifactId>
+                <!-- <version>Camden.SR2</version> -->
+                <version>Dalston.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>core</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>image-processing</artifactId>
+            <groupId>org.openimaj</groupId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>clustering</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>image-local-features</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <artifactId>kinect</artifactId>
+            <groupId>org.openimaj.hardware</groupId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>faces</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>image-feature-extraction</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>core-video-capture</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openimaj</groupId>
+            <artifactId>xuggle-video</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+    <!-- Configuracao de build -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <layout>ZIP</layout>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>
+                <configuration> <archive> <manifest> <mainClass>${start-class}</mainClass>
+                </manifest> </archive> <descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs> </configuration> </plugin> -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
